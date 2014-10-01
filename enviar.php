@@ -88,7 +88,7 @@ curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt ($ch, CURLOPT_COOKIEJAR, $cookie); 
 curl_setopt ($ch, CURLOPT_COOKIEFILE, $cookie); 
 curl_setopt($ch, CURLOPT_HTTPHEADER, array('Expect:'));
-curl_setopt($ch, CURLOPT_VERBOSE, true);
+#curl_setopt($ch, CURLOPT_VERBOSE, true);
 curl_setopt($ch, CURLOPT_POST,1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $submitFields);
 $result=curl_exec ($ch);

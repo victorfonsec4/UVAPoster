@@ -49,6 +49,7 @@ $result = curl_exec ($ch);
 
 curl_close($ch);
 
+#pega pagina de quick submit
 $ch = curl_init("http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=25");
 curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, FALSE); 
 curl_setopt ($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.6) Gecko/20070725 Firefox/2.0.0.6"); 
@@ -56,6 +57,7 @@ curl_setopt ($ch, CURLOPT_TIMEOUT, 60);
 curl_setopt ($ch, CURLOPT_FOLLOWLOCATION, 0); 
 curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1); 
 curl_setopt ($ch, CURLOPT_COOKIEJAR, $cookie); 
+#curl_setopt($ch, CURLOPT_VERBOSE, true);
 curl_setopt ($ch, CURLOPT_COOKIEFILE, $cookie); 
 curl_setopt ($ch, CURLOPT_REFERER, $url); 
 
@@ -63,6 +65,7 @@ curl_setopt ($ch, CURLOPT_REFERER, $url);
 $content = curl_exec($ch);
 curl_close($ch);
 
+#echo $content;
 $html = str_get_html($content);
 $html = $html->find('form[method=post]', 0)->find('input[type=hidden]');
 

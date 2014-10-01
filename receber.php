@@ -20,8 +20,9 @@ function cmp($a, $b)
 
 $probs = usort($content["subs"], "cmp");
 $lastSub = end($content["subs"]);
-$time = $lastSub[4];
-$time = gmdate("y-m-Y H:m");
+$dt = new DateTime('@'.$lastSub[4]);
+$dt->setTimeZone(new DateTimeZone('America/Sao_Paulo'));
+$time = $dt->format('d/m/Y H:m');
 $uname = $content["uname"]."\n";
 
 $subCodes = array(

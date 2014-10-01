@@ -47,7 +47,6 @@ curl_setopt ($ch, CURLOPT_POST, 1);
 curl_setopt ($ch, CURLOPT_POSTFIELDS, $loginFields); 
 $result = curl_exec ($ch); 
 
-#echo ($result);
 curl_close($ch);
 
 $ch = curl_init("http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=25");
@@ -76,9 +75,6 @@ $submitFields = array('localid' => $argv[1], 'code' => $code, 'language' => 5);
 foreach ($html as $element)
 	$submitFields[$element->name] = urlencode($element->value);
 
-foreach($submitFields as $key => $value)
-	echo "{$key} = {$value}\n";
-
 // Submiting file
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,"http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=25&page=save_submission");
@@ -93,7 +89,4 @@ curl_setopt($ch, CURLOPT_VERBOSE, true);
 curl_setopt($ch, CURLOPT_POST,1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $submitFields);
 $result=curl_exec ($ch);
-var_dump(curl_errno($ch));
-var_dump(curl_error($ch));
 curl_close ($ch);
-var_dump($result);
